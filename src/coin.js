@@ -1,4 +1,5 @@
 import React from "react";
+import "./coin.css";
 
 export const CoinsData = ({
   name,
@@ -10,22 +11,25 @@ export const CoinsData = ({
   marketcap,
 }) => {
   return (
-    <div>
-      <div>
-        <div>
+    <div className="coin-container">
+      <div className="coin-row">
+        <div className="coin">
           <img src={image} alt="crpto" />
           <h1>{name}</h1>
           <p>{symbol}</p>
         </div>
-        <div>
-          <p>${price}</p>
-          <p>${volume.toLocaleString()}</p>
+        <div className="coin-data">
+          <p className="coin-price">${price}</p>
+          <p className="coin-volume">${volume.toLocaleString()}</p>
           {priceChange < 0 ? (
-            <p>{priceChange.toFixed(2)}%</p>
+            <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
           ) : (
-            <p>{priceChange.toFixed()}%</p>
+            <p className="coin-percent green">{priceChange.toFixed()}%</p>
           )}
-          <p> Mkt Cap:${marketcap.toLocaleString()}</p>
+          <p className="coin-marketcap">
+            {" "}
+            Mkt Cap:${marketcap.toLocaleString()}
+          </p>
         </div>
       </div>
     </div>
